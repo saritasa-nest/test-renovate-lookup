@@ -29,6 +29,13 @@
   prConcurrentLimit: 10,
   rangeStrategy: 'bump',
   rebaseWhen: 'conflicted',
+  packageRules: [
+    {
+      "matchPackageNames": ["saritasa-nest/test-renovate-lookup"],
+      "matchDatasources": ["github-tags"],
+      "extractVersion": "^modules/[^/]+/v(?<version>\\d+\\.\\d+\\.\\d+)$",
+    },
+  ],
   customManagers: [
     {
       "description": "Bump Terraform module tags in source field",      
