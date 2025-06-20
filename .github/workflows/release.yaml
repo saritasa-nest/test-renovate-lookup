@@ -32,11 +32,8 @@ jobs:
   # │                                                                                                                    │
   # └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
   release:
-    runs-on: saritasa-rocks-eks
+    runs-on: ubuntu-latest
     timeout-minutes: 15
-    outputs:
-      changed-map: ${{ steps.terraform-module-release.outputs.changed-modules-map }}
-      pr-body: ${{ github.event.pull_request.body }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
