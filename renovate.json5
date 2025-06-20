@@ -16,7 +16,6 @@
     'renovate',
   ],
   dependencyDashboardHeader: '### Summary \n JIRA: [SD-1202](https://saritasa.atlassian.net/browse/SD-1202)',
-  minimumReleaseAge: '7 days',
   rollbackPrs: true,
   addLabels: [
     'auto-update',
@@ -34,6 +33,7 @@
       matchDatasources: ['github-tags'],
       matchPackageNames: ['saritasa-nest/test-renovate-lookup'],
       extractVersion: '^modules/(?<moduleName>[^/]+)/v(?<version>\\d+\\.\\d+\\.\\d+)$',
+      versioning: 'semver'
     }
   ],
   customManagers: [
