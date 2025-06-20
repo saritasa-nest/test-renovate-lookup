@@ -9,12 +9,12 @@ jobs:
     timeout-minutes: 15
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
         with:
           fetch-depth: 0
 
       - name: Run pre-commit checks
-        uses: saritasa-nest/saritasa-github-actions/.github/actions/pre-commit@v4.1
+        uses: saritasa-nest/saritasa-github-actions/.github/actions/pre-commit@5adb8c6d94bf4ae686a32eb5cee3207b57f455bc # v4.1
         with:
           ignore-commit-authors: github-actions
           node-version: '20'
