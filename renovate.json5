@@ -1,0 +1,75 @@
+{
+  extends: [
+    'config:recommended',
+    'group:linters',
+    'helpers:pinGitHubActionDigests',
+    ':separateMultipleMajorReleases',
+    ':ignoreUnstable',
+    ':semanticCommits',
+    ':semanticPrefixFixDepsChoreOthers',
+    'customManagers:githubActionsVersions',
+  ],
+  dependencyDashboardTitle: 'Renovate Dependency Dashboard ⚙️ | SD-1202',
+  dependencyDashboardAutoclose: true,
+  dependencyDashboardLabels: [
+    'auto-update',
+    'renovate',
+  ],
+  dependencyDashboardHeader: '### Summary \n JIRA: [SD-1202](https://saritasa.atlassian.net/browse/SD-1202)',
+  minimumReleaseAge: '7 days',
+  rollbackPrs: true,
+  addLabels: [
+    'auto-update',
+    'renovate',
+    'Needs Review',
+  ],
+  configMigration: true,
+  commitMessageLowerCase: 'auto',
+  prHourlyLimit: 0,
+  prConcurrentLimit: 10,
+  rangeStrategy: 'bump',
+  rebaseWhen: 'conflicted',
+  packageRules: [
+    {
+      matchCategories: [
+        'terraform',
+      ],
+      postUpgradeTasks: {
+        commands: [
+          'terraform-docs .',
+        ],
+        fileFilters: [
+          '**/README.md',
+        ],
+        executionMode: 'update',
+      },
+    },
+    {
+      matchManagers: ['terraform'],
+      matchFileNames: ['modules/**'],
+      matchSourceUrls: ['https://github.com/saritasa-nest/test-renovate-lookup'],
+    },
+  ],
+  major: {
+    commitMessagePrefix: 'renovate major:',
+    labels: [
+      'major',
+    ],
+  },
+  minor: {
+    commitMessagePrefix: 'renovate minor:',
+    labels: [
+      'minor',
+    ],
+  },
+  patch: {
+    commitMessagePrefix: 'renovate patch:',
+    labels: [
+      'patch',
+    ],
+  },
+  commitMessageAction: 'update',
+  baseBranches: [
+    'main',
+  ],
+}
