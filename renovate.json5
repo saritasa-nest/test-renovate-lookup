@@ -34,7 +34,6 @@
       matchDatasources: ['github-tags'],
       matchPackageNames: ['saritasa-nest/test-renovate-lookup'],
       extractVersion: '^modules/(?<moduleName>[^/]+)/v(?<version>\\d+\\.\\d+\\.\\d+)$',
-      versioning: 'semver'
     }
   ],
   customManagers: [
