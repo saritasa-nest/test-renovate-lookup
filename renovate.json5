@@ -36,7 +36,7 @@
       "datasourceTemplate": "github-tags", 
       "depNameTemplate": "saritasa-nest/test-renovate-lookup",
       "versioningTemplate": "loose",
-      "managerFilePatterns": ["\\.tf$"],
+      "fileMatch": ["\\.tf$"],
       "matchStrings": [
         'source\\s*=\\s*"git@github\\.com:saritasa-nest/test-renovate-lookup\\.git\\?ref=(?<currentValue>.+?)"',
       ],
