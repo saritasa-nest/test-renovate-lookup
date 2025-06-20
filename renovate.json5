@@ -44,18 +44,22 @@
         executionMode: 'update',
       },
     },
+    {
+      "matchPackageNames": ["saritasa-nest/test-renovate-lookup"],
+      "extractVersion": "^modules/(?<moduleName>[^/]+)/v(?<version>\\d+\\.\\d+\\.\\d+)$"
+    },
   ],
   customManagers: [
     {
       "customType": "regex",
       "fileMatch": ["\\.tf$"],
+      "description": "Bump Terraform module tags in source field",
       "matchStrings": [
         "(?<moduleSource>git@github\\.com:saritasa-nest/test-renovate-lookup\\.git\\?ref=modules/(?<moduleName>[^/]+))\\/v(?<currentValue>\\d+\\.\\d+\\.\\d+)"
       ],
       "depNameTemplate": "saritasa-nest/test-renovate-lookup",
       "datasourceTemplate": "github-tags",
       "versioningTemplate": "semver",
-      "extractVersionTemplate": "^modules/(?<moduleName>[^/]+)/v(?<version>\\d+\\.\\d+\\.\\d+)$",
       "autoReplaceStringTemplate": "{{{moduleSource}}}/v{{{newValue}}}"
     },
   ],
