@@ -1,1 +1,0 @@
-# test-renovate-lookup
