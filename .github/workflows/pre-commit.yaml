@@ -5,7 +5,7 @@ on:
 
 jobs:
   pre-commit:
-    runs-on: saritasa-rocks-eks
+    runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
       - name: Checkout code
