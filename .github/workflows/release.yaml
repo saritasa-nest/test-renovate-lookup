@@ -36,11 +36,11 @@ jobs:
     timeout-minutes: 15
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
         with:
           fetch-depth: 0
       - name: Release new Terraform module version
-        uses: techpivot/terraform-module-releaser@v1.5.0
+        uses: techpivot/terraform-module-releaser@8cd6833fca3f0c9d9771bb1c920248230a9c6ef5 # v1.5.0
         id: terraform-module-release
         with:
           # Keywords indicating a major version bump (from 1.x.x to 2.0.0)
