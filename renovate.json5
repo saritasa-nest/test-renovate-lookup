@@ -46,7 +46,7 @@
     },
     {
       "matchPackageNames": ["saritasa-nest/test-renovate-lookup"],
-      "extractVersion": "^modules/(?<moduleName>[^/]+)/v(?<version>\\d+\\.\\d+\\.\\d+)$"
+
     },
   ],
   customManagers: [
@@ -60,7 +60,8 @@
       "depNameTemplate": "saritasa-nest/test-renovate-lookup",
       "datasourceTemplate": "github-tags",
       "versioningTemplate": "semver",
-      "autoReplaceStringTemplate": "{{{moduleSource}}}/v{{{newValue}}}"
+      "autoReplaceStringTemplate": "{{{moduleSource}}}/v{{{newValue}}}",
+      "extractVersionTemplate": "^modules/(?<moduleName>[^/]+)/v(?<version>\\d+\\.\\d+\\.\\d+)$",
     },
   ],
   major: {
