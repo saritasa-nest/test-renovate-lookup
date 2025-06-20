@@ -50,10 +50,11 @@
       "customType": "regex",
       "fileMatch": ["\\.tf$"],
       "matchStrings": [
-        "(?<moduleSource>git@github\\.com:saritasa-nest/test-renovate-lookup\\.git\\?ref=modules/(?<depName>[^/]+))\\/v(?<currentValue>\\d+\\.\\d+\\.\\d+)"
+        "(?<moduleSource>git@github\\.com:saritasa-nest/test-renovate-lookup\\.git\\?ref=modules/(?<moduleName>[^/]+))\\/v(?<currentValue>\\d+\\.\\d+\\.\\d+)"
       ],
       "datasourceTemplate": "github-tags",
       "versioningTemplate": "semver",
+      "depNameTemplate": "saritasa-nest/test-renovate-lookup",
       "autoReplaceStringTemplate": "{{{moduleSource}}}/v{{{newValue}}}"
     },
   ],
