@@ -1,0 +1,75 @@
+{
+  extends: [
+    'config:recommended',
+    'group:linters',
+    'helpers:pinGitHubActionDigests',
+    ':separateMultipleMajorReleases',
+    ':ignoreUnstable',
+    ':semanticCommits',
+    ':semanticPrefixFixDepsChoreOthers',
+    'customManagers:githubActionsVersions',
+  ],
+  dependencyDashboardTitle: 'Renovate Dependency Dashboard ⚙️ | SD-1202',
+  dependencyDashboardAutoclose: true,
+  dependencyDashboardLabels: [
+    'auto-update',
+    'renovate',
+  ],
+  dependencyDashboardHeader: '### Summary \n JIRA: [SD-1202](https://saritasa.atlassian.net/browse/SD-1202)',
+  minimumReleaseAge: '7 days',
+  rollbackPrs: true,
+  addLabels: [
+    'auto-update',
+    'renovate',
+    'Needs Review',
+  ],
+  configMigration: true,
+  commitMessageLowerCase: 'auto',
+  prHourlyLimit: 0,
+  prConcurrentLimit: 10,
+  rangeStrategy: 'bump',
+  rebaseWhen: 'conflicted',
+  packageRules: [
+    {
+      "matchPackageNames": ["saritasa-nest/test-renovate-lookup"],
+      "matchDatasources": ["github-tags"],
+      "extractVersion": "^modules/[^/]+/v(?<version>\\d+\\.\\d+\\.\\d+)$",
+    },
+  ],
+  customManagers: [
+    {
+      "description": "Bump Terraform module tags in source field",      
+      "customType": "regex",
+      "datasourceTemplate": "github-tags",
+      "packageNameTemplate": "saritasa-nest/test-renovate-lookup",      
+      "depNameTemplate": "saritasa-nest/test-renovate-lookup/modules/{{moduleName}}",
+      "versioningTemplate": "loose",
+      "fileMatch": ["\\.tf$"],
+      "matchStrings": [
+        "source\\s*=\\s*\"git@github\\.com:saritasa-nest/test-renovate-lookup\\.git\\?ref=modules/(?<moduleName>[^/]+)/v(?<currentValue>\\d+\\.\\d+\\.\\d+)\""
+      ],
+    },
+  ],
+  major: {
+    commitMessagePrefix: 'renovate major:',
+    labels: [
+      'major',
+    ],
+  },
+  minor: {
+    commitMessagePrefix: 'renovate minor:',
+    labels: [
+      'minor',
+    ],
+  },
+  patch: {
+    commitMessagePrefix: 'renovate patch:',
+    labels: [
+      'patch',
+    ],
+  },
+  commitMessageAction: 'update',
+  baseBranches: [
+    'main',
+  ],
+}
