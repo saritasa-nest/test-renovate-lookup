@@ -32,7 +32,7 @@
   packageRules: [
     {
       "matchPackageNames": ["saritasa-nest/test-renovate-lookup"],
-      "datasource": "github-tags",
+      "matchDatasources": ["github-tags"],
       "extractVersion": "^modules/[^/]+/v(?<version>\\d+\\.\\d+\\.\\d+)$",
     },
   ],
