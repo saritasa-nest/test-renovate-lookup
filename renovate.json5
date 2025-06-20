@@ -46,10 +46,8 @@
       ],
       datasourceTemplate: 'github-tags',
       packageNameTemplate: 'saritasa-nest/test-renovate-lookup',
-      depNameTemplate: 'saritasa-nest/test-renovate-lookup/modules/{{moduleName}}',
+      depNameTemplate: 'modules/{{moduleName}}',
       versioningTemplate: 'semver',
-      extractVersionTemplate: '^modules/(?<moduleName>[^/]+)/v(?<version>\\d+\\.\\d+\\.\\d+)$',
-      autoReplaceStringTemplate: '{{{moduleSource}}}/v{{{newValue}}}'
     }
   ],
   major: {
