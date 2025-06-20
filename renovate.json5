@@ -38,7 +38,7 @@
       "versioningTemplate": "loose",
       "managerFilePatterns": ["\\.tf$"],
       "matchStrings": [
-        'source\\s*=\\s*"git@github\\.com:saritasa-nest/test-renovate-lookup\\.git\\?ref=(?<currentValue>.+?)"
+        'source\\s*=\\s*"git@github\\.com:saritasa-nest/test-renovate-lookup\\.git\\?ref=(?<currentValue>.+?)"',
       ],
     },
   ],
